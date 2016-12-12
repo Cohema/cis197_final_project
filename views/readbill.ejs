@@ -1,0 +1,12 @@
+<h1>Viewing: <%=billinfo[0].bname%></h1>
+  <h3>Title:<h3>
+  <h5> <%= billinfo[0].bname%> </h5>
+  <h3>Author:<h3>
+  <h5> <%= billinfo[0].aname%> </h5>
+  <h3>Preamble:<h3>
+  <h5> <%= billinfo[0].preamble%> </h5>
+  <% for(var i=1; i-1<billinfo[0].number; i++) {%>
+    <h3>Section <%= i%>:<h3>
+   <h5> <%= billinfo[0]['section' + i]%> </h5>
+  <% } %>
+  <p><a href="/">Return to Bills</a></p>

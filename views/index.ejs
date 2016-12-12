@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Congress Bill WebApp</title>
+</head>
+<body>
+  <% if (user != null && user != undefined) {%>
+    <span> Welcome to the Model Congress 2017 Bill Page <%= user[0]%></span>
+  <% } else {%>
+    <span> Welcome to the Model Congress 2017 Bill Page </span>
+  <% }%>
+
+  <ul class="bills">
+  <% for(var i=0; i<bills.length; i++) {%>
+       <li>
+        <span><%= bills[i].bname %>,</span>
+        <span> by <%= bills[i].aname %></span>
+        <span> -- Upvotes: <%= bills[i].upvotes %></span>
+          <form action="/read" method="POST">
+          <input type="hidden" name="bill" value=<%=bills[i].bname%> />
+          <input type="hidden" name="author" value=<%=bills[i].aname%> />
+           <button type="submit">Read</button>
+          </form>
+          <form action="/upvote" method="POST">
+          <input type="hidden" name="bill" value=<%=bills[i].bname%> />
+          <input type="hidden" name="author" value=<%=bills[i].aname%> />
+           <button type="submit">Upvote</button>
+          </form>
+          <form action="/delete" method="POST">
+          <input type="hidden" name="bill" value=<%=bills[i].bname%> />
+          <input type="hidden" name="author" value=<%=bills[i].aname%> />
+           <button type="submit">Delete</button>
+          </form>
+      </li >
+  <% } %>
+  </ul>
+
+  <% if (user != null && user != undefined) {
+        if(user[1] > 0) {%>
+  <form action="/bill" method="POST">
+    <input type="text" placeholder="Author Name" name="aname">
+    <input type="text" placeholder ="Bill Name" name="bname">
+    <input type="number" placeholder ="Number of Sections" name="number">
+    <button type="submit">Submit</button>
+  </form>
+    <% }
+  }%>
+  <p><a href="/login">Login</a></p>
+  <p><a href="/logout">Logout</a></p>
+  <% if (user != null && user != undefined) {
+        if(user[1] > 1) {%>
+    <p><a href="/addUser">Add Users</a></p>
+  <% }
+  }%>  
+  <div id="container">
+  </div>
+</body>
+  <span> Is there something you want to tell me Devesh?</span>
+  <form action="/quotes" method="POST">
+    <input type="text" placeholder="Name" name="name">
+    <input type="text" placeholder="Whats on your mind?" name="quote">
+    <button type="submit">Submit</button>
+  </form>
+
+</html>

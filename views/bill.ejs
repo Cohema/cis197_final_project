@@ -1,0 +1,10 @@
+<h1>Bill Submission</h1>
+<form method="post">
+  <p>Preamble<br>
+  <input type="text" name="preamble"></p>
+  <% for(var i=1; i-1<number; i++) {%>
+    <p>Section <%= i%><br>
+    <input type="text" name="section<%=i%>"></p>
+  <% } %>
+  <p><input type="submit"></p>
+</form>
