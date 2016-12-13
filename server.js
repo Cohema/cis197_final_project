@@ -185,7 +185,7 @@ app.post('/upvote', (req, res) => {
     ).toArray( function(err, result){
       // console.log(result);
       // console.log(result['upvotes']);
-      // console.log(parseInt(result.upvotes) + 1);
+      // console.log(req.body.bill, result[0]);
       db.collection('bills').update(
         {$and:
         [{ aname: req.body.author },

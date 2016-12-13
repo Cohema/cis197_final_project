@@ -18,18 +18,18 @@
         <span> by <%= bills[i].aname %></span>
         <span> -- Upvotes: <%= bills[i].upvotes %></span>
           <form action="/read" method="POST">
-          <input type="hidden" name="bill" value=<%=bills[i].bname%> />
-          <input type="hidden" name="author" value=<%=bills[i].aname%> />
+          <input type="hidden" name="bill" value="<%=bills[i].bname%>" />
+          <input type="hidden" name="author" value="<%=bills[i].aname%>" />
            <button type="submit">Read</button>
           </form>
           <form action="/upvote" method="POST">
-          <input type="hidden" name="bill" value=<%=bills[i].bname%> />
-          <input type="hidden" name="author" value=<%=bills[i].aname%> />
+          <input type="hidden" name="bill" value="<%=bills[i].bname%>"/>
+          <input type="hidden" name="author" value="<%=bills[i].aname%>" />
            <button type="submit">Upvote</button>
           </form>
           <form action="/delete" method="POST">
-          <input type="hidden" name="bill" value=<%=bills[i].bname%> />
-          <input type="hidden" name="author" value=<%=bills[i].aname%> />
+          <input type="hidden" name="bill" value="<%=bills[i].bname%>" />
+          <input type="hidden" name="author" value="<%=bills[i].aname%>" />
            <button type="submit">Delete</button>
           </form>
       </li >
